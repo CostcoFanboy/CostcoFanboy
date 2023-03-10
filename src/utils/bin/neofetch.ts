@@ -66,6 +66,27 @@ ossyNMMMNyMMhsssssssssssssshmmmhssssssso
             .-/+oossssoo+/-.
 `;
 
+const unknown = `
+                  /|  /|  ---------------------------
+                __||__||                            |
+               /   O O\\__  I have no idea what OS  |
+              /          \\   this is. Send help    |
+             /      \\     \\                       |
+            /   _    \\     \\ ----------------------
+           /    |\\____\\     \\      ||
+          /     | | | |\\____/      ||
+         /       \\| | | |/ |     __||
+        /  /  \\   -------  |_____| ||
+       /   |   |           |       --|
+       |   |   |           |_____  --|
+       |  |_|_|_|          |     \\----
+       /\\                  |
+      / /\\        |        /
+     / /  |       |       |
+ ___/ /   |       |       |
+|____/    c_c_c_C/ \\C_c_c_c
+`;
+
 const getPlatform = (): 'Unknown' | 'Windows' | 'MacOS' | 'Linux' => {
   let os: 'Unknown' | 'Windows' | 'MacOS' | 'Linux' = 'Unknown';
 
@@ -96,6 +117,8 @@ const getMainColor = () => {
       return theme.blue;
     case 'Linux':
       return theme.red;
+    default:
+      return theme.yellow;
   }
 };
 
@@ -110,6 +133,8 @@ const getArt = () => {
       return `<p style="color: ${mainColor}">${windows}</p>`;
     case 'Linux':
       return `<p style="color: ${mainColor}">${linux}</p>`;
+    default:
+      return `<p style="color: ${mainColor}">${unknown}</p>`;
   }
 };
 
@@ -122,17 +147,12 @@ const getInfo = () => {
   const userAgent = navigator.userAgent;
   const theme = localStorage.getItem('theme');
   const resolution = `${window.screen.availWidth}x${window.screen.availHeight}`;
-  const packages = Object.keys(packageJson.dependencies);
-  const devPackages = Object.keys(packageJson.devDependencies);
   const mainColor = getMainColor();
 
   let message = '';
 
   message += `<span style="color: ${mainColor}">Host</span>: ${hostname}\n`;
   message += `<span style="color: ${mainColor}">OS</span>: ${os}\n`;
-  message += `<span style="color: ${mainColor}">Packages</span>: ${
-    packages.length + devPackages.length
-  } (npm)\n`;
   message += `<span style="color: ${mainColor}">Resolution</span>: ${resolution}\n`;
   message += `<span style="color: ${mainColor}">Theme</span>: ${theme}\n`;
   message += `<span style="color: ${mainColor}">Browser</span>: ${userAgent}\n`;
