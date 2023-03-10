@@ -11,3 +11,9 @@ export const linkedin = async (args: string[]): Promise<string> => {
 
   return 'Opening linkedin...';
 };
+
+export const steam = async (args: string[]): Promise<string> => {
+  window.open(`https://steamcommunity.com/id/${config.social.steam}/`);
+
+  return 'Opening steam...';
+}
