@@ -18,7 +18,7 @@ export const date = async (args: string[]): Promise<string> => {
 export const email = async (args: string[]): Promise<string> => {
   window.open('mailto:mihaidamaschinwebdev@gmail.com');
 
-  return 'Opening mailto:mihaidamaschinwebdev@gmail.com...';
+  return 'Opening mihaidamaschinwebdev@gmail.com...';
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
@@ -33,14 +33,6 @@ export const repo = async (args?: string[]): Promise<string> => {
   return 'Opening repository...';
 };
 
-export const credits = async (args?: string[]): Promise<string> => {
-  setTimeout(function () {
-    window.open('https://github.com/m4tt72/terminal', '_blank');
-  }, 1000);
-
-  return `Credits to M4TT72 for this template!`;
-}
-
 export const banner = (args?: string[]): string => {
   return `
 ███╗   ███╗██╗██╗  ██╗ █████╗ ██╗    ██████╗  █████╗ ███╗   ███╗ █████╗ ███████╗ ██████╗██╗  ██╗██╗███╗   ██╗
@@ -54,4 +46,13 @@ export const banner = (args?: string[]): string => {
 Type 'help' to see list of available commands.
 --
 `;
+};
+
+export const credits = async (args?: string[]): Promise<string> => {
+  let message = '';
+
+  message = `Credits to M4TT72 for this template! Check out his work `;
+  message += `<a href="${packageJson.author.repository}">here</a>.`;
+  
+  return message;
 };
