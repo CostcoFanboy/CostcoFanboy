@@ -1,6 +1,7 @@
 import { formatDistanceToNow } from 'date-fns';
 import packageJson from '../../../package.json';
 import themes from '../../../themes.json';
+import config from '../../../config.json';
 
 const macos = `
                     'c.
@@ -107,7 +108,7 @@ const getPlatform = (): 'Unknown' | 'Windows' | 'MacOS' | 'Linux' => {
 
 const getMainColor = () => {
   const platform = getPlatform();
-  const themeName = localStorage.getItem('theme');
+  const themeName = localStorage.getItem('theme') ?? config.theme;
   const theme = themes.find((theme) => theme.name.toLowerCase() === themeName);
 
   switch (platform) {
@@ -141,11 +142,11 @@ const getArt = () => {
 const getInfo = () => {
   const os = getPlatform();
   const visitedAt = new Date(
-    localStorage.getItem('visitedAt') || new Date().toString(),
+    localStorage.getItem('visitedAt') ?? new Date().toString(),
   );
   const hostname = window.location.hostname;
   const userAgent = navigator.userAgent;
-  const theme = localStorage.getItem('theme');
+  const theme = localStorage.getItem('theme') ?? config.theme;
   const resolution = `${window.screen.availWidth}x${window.screen.availHeight}`;
   const mainColor = getMainColor();
 
