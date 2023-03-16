@@ -6,7 +6,7 @@
 I am a Back-End Developer from Canada. [More info](https://costcofanboy.github.io/CostcoFanboy/)
 
 - I’m working as a Senior Software Developer, and I'm currently dipping my toes into the wonderful world of Rust.
-- Specialized in Python 3 and PHP 5+ Back-End Development and finding the best poutine <img src="public/poutine.png" width="30"> in a 10km radius of any location.
+- Specialized in Python 3 and PHP 7+ Back-End Development and finding the best poutine <img src="public/poutine.png" width="30"> in a 10km radius of any location.
 
 
 ## 📫 Contact Me:
